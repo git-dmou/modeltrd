@@ -1,0 +1,1249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-map xmlns="http://cayenne.apache.org/schema/10/modelMap"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://cayenne.apache.org/schema/10/modelMap https://cayenne.apache.org/schema/10/modelMap.xsd"
+	 project-version="10">
+	<property name="defaultPackage" value="fr.solunea.thaleia.model"/>
+	<db-entity name="account_request">
+		<db-attribute name="account_completion_redirection" type="VARCHAR" length="255"/>
+		<db-attribute name="company" type="VARCHAR" length="250"/>
+		<db-attribute name="created_user_id" type="INTEGER"/>
+		<db-attribute name="email_validation_code" type="VARCHAR" length="255"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="mail" type="VARCHAR" length="250"/>
+		<db-attribute name="name" type="VARCHAR" length="250"/>
+		<db-attribute name="phone" type="VARCHAR" length="250"/>
+		<db-attribute name="request_date" type="TIMESTAMP"/>
+	</db-entity>
+	<db-entity name="adhoc_report">
+		<db-attribute name="add_details" type="BOOLEAN"/>
+		<db-attribute name="author_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="content" type="VARCHAR" isMandatory="true" length="10000"/>
+		<db-attribute name="csv_delimiter" type="VARCHAR" length="10"/>
+		<db-attribute name="delivery_format" type="VARCHAR" length="250"/>
+		<db-attribute name="delivery_mode" type="VARCHAR" length="250"/>
+		<db-attribute name="description" type="VARCHAR" length="2500"/>
+		<db-attribute name="error_recipients" type="VARCHAR" length="250"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="mail_body" type="VARCHAR" length="10000"/>
+		<db-attribute name="mail_object" type="VARCHAR" length="250"/>
+		<db-attribute name="mail_recipients" type="VARCHAR" length="2500"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="schedule" type="VARCHAR" length="250"/>
+		<db-attribute name="sftp_host" type="VARCHAR" length="250"/>
+		<db-attribute name="sftp_login" type="VARCHAR" length="250"/>
+		<db-attribute name="sftp_password" type="VARCHAR" length="250"/>
+		<db-attribute name="sftp_path" type="VARCHAR" length="250"/>
+		<db-attribute name="sftp_port" type="VARCHAR" length="10"/>
+		<db-attribute name="type" type="VARCHAR" length="250"/>
+		<db-attribute name="xls_template_binary" type="BLOB"/>
+		<db-attribute name="xls_template_filename" type="VARCHAR" length="250"/>
+		<db-attribute name="xls_template_sheet_name" type="VARCHAR" length="250"/>
+	</db-entity>
+	<db-entity name="aicc_tca_data">
+		<db-attribute name="activity_id" type="VARCHAR" length="255"/>
+		<db-attribute name="actor_mbox" type="VARCHAR" length="255"/>
+		<db-attribute name="aerouserid" type="VARCHAR" length="100"/>
+		<db-attribute name="aerouserpwd" type="VARCHAR" length="100"/>
+		<db-attribute name="data_type" type="VARCHAR" length="20"/>
+		<db-attribute name="date_transmission" type="TIMESTAMP"/>
+		<db-attribute name="jsonobject" type="LONGVARCHAR" length="5000"/>
+		<db-attribute name="keydata" type="INTEGER" isPrimaryKey="true" isGenerated="true" isMandatory="true" length="11"/>
+		<db-attribute name="querystring" type="VARCHAR" length="255"/>
+		<db-attribute name="statement_ref" type="VARCHAR" length="255"/>
+		<db-attribute name="verb_id" type="VARCHAR" length="255"/>
+		<db-attribute name="visible" type="VARCHAR" length="5"/>
+	</db-entity>
+	<db-entity name="allocation">
+		<db-attribute name="child_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="parent_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="position" type="INTEGER"/>
+	</db-entity>
+	<db-entity name="api_token">
+		<db-attribute name="expiration_date" type="TIMESTAMP" isMandatory="true"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="user_id" type="INTEGER"/>
+		<db-attribute name="value" type="VARCHAR" isMandatory="true" length="100"/>
+	</db-entity>
+	<db-entity name="application_parameter">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="value" type="VARCHAR" isMandatory="true" length="2000"/>
+	</db-entity>
+	<db-entity name="buy_process">
+		<db-attribute name="amount" type="VARCHAR" length="250"/>
+		<db-attribute name="approval_date" type="TIMESTAMP"/>
+		<db-attribute name="creation_date" type="VARCHAR" length="250"/>
+		<db-attribute name="execute_url" type="VARCHAR" length="250"/>
+		<db-attribute name="execution_date" type="TIMESTAMP"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="invoice" type="VARCHAR" length="250"/>
+		<db-attribute name="payer_id" type="INTEGER"/>
+		<db-attribute name="payment_external_id" type="VARCHAR" length="250"/>
+		<db-attribute name="sku_given" type="VARCHAR" length="250"/>
+		<db-attribute name="sku_requested" type="VARCHAR" length="250"/>
+	</db-entity>
+	<db-entity name="cmi_data">
+		<db-attribute name="completion_status" type="VARCHAR" length="255"/>
+		<db-attribute name="email" type="VARCHAR" isMandatory="true" length="255"/>
+		<db-attribute name="entry" type="VARCHAR" length="255"/>
+		<db-attribute name="exit" type="VARCHAR" length="255"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="location" type="VARCHAR" length="255"/>
+		<db-attribute name="publication_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="score_raw" type="VARCHAR" length="255"/>
+		<db-attribute name="session_time" type="VARCHAR" length="255"/>
+		<db-attribute name="success_status" type="VARCHAR" length="255"/>
+		<db-attribute name="suspend_data" type="LONGVARCHAR"/>
+		<db-attribute name="total_time" type="VARCHAR" length="255"/>
+	</db-entity>
+	<db-entity name="content">
+		<db-attribute name="domain_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="is_module" type="BOOLEAN"/>
+	</db-entity>
+	<db-entity name="content_property">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="value_type_id" type="INTEGER" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="content_property_name">
+		<db-attribute name="content_type_property_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="locale_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="2500"/>
+	</db-entity>
+	<db-entity name="content_property_value">
+		<db-attribute name="content_property_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="content_version_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="locale_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="value" type="VARCHAR" isMandatory="true" length="100000"/>
+	</db-entity>
+	<db-entity name="content_type">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="is_module_type" type="BOOLEAN" isMandatory="true"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="250"/>
+	</db-entity>
+	<db-entity name="content_type_property">
+		<db-attribute name="content_property_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="content_type_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="hidden" type="BOOLEAN" isMandatory="true"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="content_version">
+		<db-attribute name="author_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="content_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="content_identifier" type="VARCHAR" length="2000"/>
+		<db-attribute name="content_type_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="last_update_date" type="TIMESTAMP" isMandatory="true"/>
+		<db-attribute name="revision_note" type="VARCHAR" length="2000"/>
+		<db-attribute name="revision_number" type="INTEGER" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="content_version_tag">
+		<db-attribute name="content_version_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="tag_id" type="INTEGER" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="contribute_role">
+		<db-attribute name="content_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="description" type="VARCHAR" length="250"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="user_id" type="INTEGER" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="customization_file">
+		<db-attribute name="domain_id" type="INTEGER"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="local_file_name" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="plugin_id" type="INTEGER"/>
+	</db-entity>
+	<db-entity name="customization_property">
+		<db-attribute name="domain_id" type="INTEGER"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="255"/>
+		<db-attribute name="plugin_id" type="INTEGER"/>
+		<db-attribute name="value" type="VARCHAR" isMandatory="true" length="255"/>
+	</db-entity>
+	<db-entity name="domain">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="parent_id" type="INTEGER"/>
+	</db-entity>
+	<db-entity name="domain_right">
+		<db-attribute name="domain_from_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="domain_to_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="downloadable_file">
+		<db-attribute name="author_id" type="INTEGER"/>
+		<db-attribute name="description" type="VARCHAR" length="10000"/>
+		<db-attribute name="downloadable_by_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="filename" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="generation_date" type="TIMESTAMP"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="last_download" type="TIMESTAMP"/>
+		<db-attribute name="notify_author" type="BOOLEAN"/>
+		<db-attribute name="reference" type="VARCHAR" isMandatory="true" length="250"/>
+	</db-entity>
+	<db-entity name="edited_content">
+		<db-attribute name="author_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="content_directory" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="content_property_value_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="open_date" type="TIMESTAMP" isMandatory="true"/>
+		<db-attribute name="preview_directory" type="VARCHAR" length="250"/>
+	</db-entity>
+	<db-entity name="event">
+		<db-attribute name="date" type="TIMESTAMP" isMandatory="true"/>
+		<db-attribute name="detail" type="VARCHAR" length="10000"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="name" type="VARCHAR" length="256"/>
+		<db-attribute name="user_id" type="INTEGER"/>
+	</db-entity>
+	<db-entity name="file_upload">
+		<db-attribute name="expiration" type="TIMESTAMP"/>
+		<db-attribute name="filename" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="parameters" type="VARCHAR" length="10000"/>
+		<db-attribute name="treatment_class" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="upload_id" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="user_id" type="INTEGER" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="licence">
+		<db-attribute name="catalog_price_euro" type="INTEGER"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="included_publication_credits" type="INTEGER"/>
+		<db-attribute name="is_demo" type="BOOLEAN"/>
+		<db-attribute name="licence_duration_days" type="INTEGER"/>
+		<db-attribute name="max_publications" type="INTEGER"/>
+		<db-attribute name="max_size_mo" type="INTEGER"/>
+		<db-attribute name="name" type="VARCHAR" length="250"/>
+		<db-attribute name="sku" type="VARCHAR" length="250"/>
+	</db-entity>
+	<db-entity name="licence_holding">
+		<db-attribute name="attribution_date" type="TIMESTAMP"/>
+		<db-attribute name="canceled" type="BOOLEAN" isMandatory="true"/>
+		<db-attribute name="end_date" type="TIMESTAMP" isMandatory="true"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="included_publications_credits" type="INTEGER"/>
+		<db-attribute name="is_demo" type="BOOLEAN"/>
+		<db-attribute name="licence_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="max_publications" type="INTEGER"/>
+		<db-attribute name="max_size_mo" type="INTEGER"/>
+		<db-attribute name="origin" type="VARCHAR" length="255"/>
+		<db-attribute name="start_date" type="TIMESTAMP" isMandatory="true"/>
+		<db-attribute name="user_hashed_email" type="VARCHAR" length="255"/>
+		<db-attribute name="user_id" type="INTEGER"/>
+	</db-entity>
+	<db-entity name="lms_access">
+		<db-attribute name="expiration_date" type="TIMESTAMP"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="lms_api_base_url" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_api_login" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_api_password" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_content_author_user" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_content_folder" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_content_import_job" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_deeplink_class_url" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_deeplink_registration_url" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_player_template" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_security_domain" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_service_implementation" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_sftp_folder" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_sftp_login" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_sftp_password" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_sftp_port" type="VARCHAR" length="255"/>
+		<db-attribute name="lms_sftp_url" type="VARCHAR" length="255"/>
+		<db-attribute name="user_id" type="INTEGER"/>
+	</db-entity>
+	<db-entity name="locale">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="5"/>
+	</db-entity>
+	<db-entity name="lrs_endpoint">
+		<db-attribute name="active" type="BOOLEAN"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="last_communication_date" type="TIMESTAMP"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="owner_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="password" type="VARCHAR" length="250"/>
+		<db-attribute name="password_personas" type="VARCHAR" length="250"/>
+		<db-attribute name="url1" type="VARCHAR" length="250"/>
+		<db-attribute name="url2" type="VARCHAR" length="250"/>
+		<db-attribute name="username" type="VARCHAR" length="250"/>
+		<db-attribute name="username_personas" type="VARCHAR" length="250"/>
+		<db-attribute name="xapiversion" type="VARCHAR" length="250"/>
+	</db-entity>
+	<db-entity name="lrs_endpoint_activity">
+		<db-attribute name="activity_id" type="VARCHAR" length="1024"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="json_data" type="VARCHAR" length="21000"/>
+		<db-attribute name="lrs_endpoint_id" type="INTEGER"/>
+	</db-entity>
+	<db-entity name="lrs_endpoint_activity_profile">
+		<db-attribute name="activity_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="json_object" type="VARCHAR" length="21000"/>
+		<db-attribute name="profile_id" type="VARCHAR" length="1024"/>
+	</db-entity>
+	<db-entity name="lrs_endpoint_persona">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="lrs_endpoint_id" type="INTEGER"/>
+		<db-attribute name="persona" type="VARCHAR" length="5000"/>
+		<db-attribute name="persona_attributes" type="VARCHAR" length="5000"/>
+		<db-attribute name="persona_identifiers" type="VARCHAR" length="5000"/>
+	</db-entity>
+	<db-entity name="lrs_endpoint_statement">
+		<db-attribute name="date_retrieved" type="TIMESTAMP" isMandatory="true"/>
+		<db-attribute name="id" type="BIGINT" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="jsondata" type="VARCHAR" isMandatory="true" length="21000"/>
+		<db-attribute name="lrs_endpoint_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="statement_id" type="VARCHAR" length="250"/>
+	</db-entity>
+	<db-entity name="mail_template">
+		<db-attribute name="attachment" type="VARCHAR" length="250"/>
+		<db-attribute name="bcc" type="VARCHAR" length="250"/>
+		<db-attribute name="body" type="VARCHAR" isMandatory="true" length="100000"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="locale" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="object" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="sender" type="VARCHAR" isMandatory="true" length="250"/>
+	</db-entity>
+	<db-entity name="plugin">
+		<db-attribute name="domain_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="filename" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="250"/>
+	</db-entity>
+	<db-entity name="publication">
+		<db-attribute name="active" type="BOOLEAN"/>
+		<db-attribute name="date" type="TIMESTAMP" isMandatory="true"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="is_on_lms" type="BOOLEAN"/>
+		<db-attribute name="launcher" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="name" type="VARCHAR" length="2000"/>
+		<db-attribute name="password" type="VARCHAR" length="64"/>
+		<db-attribute name="public_access" type="BOOLEAN"/>
+		<db-attribute name="reference" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="source_locale_id" type="INTEGER"/>
+		<db-attribute name="source_version_id" type="INTEGER"/>
+		<db-attribute name="user_id" type="INTEGER" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="publication_recipient">
+		<db-attribute name="email" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="publication_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="url" type="VARCHAR" length="250"/>
+	</db-entity>
+	<db-entity name="publication_session">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="publication_id" type="INTEGER"/>
+		<db-attribute name="token" type="VARCHAR" length="250"/>
+		<db-attribute name="username" type="VARCHAR" length="250"/>
+		<db-attribute name="valid_until" type="TIMESTAMP"/>
+	</db-entity>
+	<db-entity name="stat_data">
+		<db-attribute name="actor_mbox" type="VARCHAR" length="255"/>
+		<db-attribute name="actor_name" type="VARCHAR" length="255"/>
+		<db-attribute name="actor_objecttype" type="VARCHAR" length="255"/>
+		<db-attribute name="authority_account_homepage" type="VARCHAR" length="255"/>
+		<db-attribute name="authority_account_name" type="VARCHAR" length="255"/>
+		<db-attribute name="authority_mbox" type="VARCHAR" length="255"/>
+		<db-attribute name="authority_name" type="VARCHAR" length="255"/>
+		<db-attribute name="authority_objecttype" type="VARCHAR" length="255"/>
+		<db-attribute name="context_contextactivities_grouping" type="VARCHAR" length="255"/>
+		<db-attribute name="context_contextactivities_other" type="VARCHAR" length="255"/>
+		<db-attribute name="context_contextactivities_parent" type="VARCHAR" length="255"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="255"/>
+		<db-attribute name="jsonobject" type="LONGVARCHAR" length="5000"/>
+		<db-attribute name="object_definition_description" type="VARCHAR" length="250"/>
+		<db-attribute name="object_definition_interactiontype" type="VARCHAR" length="255"/>
+		<db-attribute name="object_definition_name_enus" type="VARCHAR" length="255"/>
+		<db-attribute name="object_definition_type" type="VARCHAR" length="255"/>
+		<db-attribute name="object_id_url" type="VARCHAR" length="255"/>
+		<db-attribute name="object_objecttype" type="VARCHAR" length="255"/>
+		<db-attribute name="publication_reference" type="VARCHAR" length="250"/>
+		<db-attribute name="received" type="TIMESTAMP"/>
+		<db-attribute name="result_completion" type="BOOLEAN"/>
+		<db-attribute name="result_duration" type="VARCHAR" length="255"/>
+		<db-attribute name="result_extensions_completionstatus" type="VARCHAR" length="255"/>
+		<db-attribute name="result_extensions_location" type="VARCHAR" length="255"/>
+		<db-attribute name="result_extensions_progressmeasure" type="VARCHAR" length="255"/>
+		<db-attribute name="result_extensions_scormversion" type="VARCHAR" length="255"/>
+		<db-attribute name="result_extensions_successstatus" type="VARCHAR" length="255"/>
+		<db-attribute name="result_response" type="VARCHAR" length="255"/>
+		<db-attribute name="result_score_max" type="FLOAT" length="5"/>
+		<db-attribute name="result_score_min" type="FLOAT" length="5"/>
+		<db-attribute name="result_score_raw" type="FLOAT" length="5"/>
+		<db-attribute name="result_score_scaled" type="FLOAT" length="5"/>
+		<db-attribute name="result_success" type="BOOLEAN"/>
+		<db-attribute name="timestamp" type="VARCHAR" length="55"/>
+		<db-attribute name="verb_display_enus" type="VARCHAR" length="255"/>
+		<db-attribute name="verb_id" type="VARCHAR" length="255"/>
+	</db-entity>
+	<db-entity name="statement_processing">
+		<db-attribute name="description" type="VARCHAR" length="2048"/>
+		<db-attribute name="destination_login" type="VARCHAR" length="256"/>
+		<db-attribute name="destination_password" type="VARCHAR" length="256"/>
+		<db-attribute name="destination_url" type="VARCHAR" length="256"/>
+		<db-attribute name="filter" type="LONGVARCHAR"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="lrs_endpoint_id" type="INTEGER"/>
+		<db-attribute name="processing" type="LONGVARCHAR"/>
+		<db-attribute name="store_raw_result" type="BOOLEAN"/>
+		<db-attribute name="store_result" type="BOOLEAN"/>
+		<db-attribute name="user_id" type="INTEGER"/>
+	</db-entity>
+	<db-entity name="tag">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="value" type="VARCHAR" isMandatory="true" length="250"/>
+	</db-entity>
+	<db-entity name="temp_dir">
+		<db-attribute name="creation_date" type="TIMESTAMP"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="owner_id" type="INTEGER"/>
+		<db-attribute name="path" type="VARCHAR" length="256"/>
+		<db-attribute name="public_id" type="VARCHAR" length="256"/>
+	</db-entity>
+	<db-entity name="temp_dir_file">
+		<db-attribute name="file_name" type="VARCHAR" length="256"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="public_id" type="VARCHAR" length="256"/>
+		<db-attribute name="size" type="BIGINT"/>
+		<db-attribute name="temp_dir_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="user_account">
+		<db-attribute name="domain_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="expiration" type="TIMESTAMP"/>
+		<db-attribute name="external_signin" type="VARCHAR" length="250"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="is_admin" type="BOOLEAN"/>
+		<db-attribute name="is_email_validated" type="BOOLEAN"/>
+		<db-attribute name="last_access" type="TIMESTAMP"/>
+		<db-attribute name="login" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="menu_contents" type="BOOLEAN"/>
+		<db-attribute name="menu_modules" type="BOOLEAN"/>
+		<db-attribute name="menu_tools" type="BOOLEAN"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="newsletter" type="BOOLEAN"/>
+		<db-attribute name="password" type="VARCHAR" length="64"/>
+		<db-attribute name="password_creation_date" type="TIMESTAMP"/>
+		<db-attribute name="postal_address" type="VARCHAR" length="250"/>
+		<db-attribute name="prefered_locale_id" type="INTEGER"/>
+		<db-attribute name="reset_password_code" type="VARCHAR" length="250"/>
+	</db-entity>
+	<db-entity name="value_type">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="250"/>
+	</db-entity>
+	<obj-entity name="AccountRequest" className="fr.solunea.thaleia.model.AccountRequest" dbEntityName="account_request">
+		<obj-attribute name="accountCompletionRedirection" type="java.lang.String" db-attribute-path="account_completion_redirection"/>
+		<obj-attribute name="company" type="java.lang.String" db-attribute-path="company"/>
+		<obj-attribute name="emailValidationCode" type="java.lang.String" db-attribute-path="email_validation_code"/>
+		<obj-attribute name="mail" type="java.lang.String" db-attribute-path="mail"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+		<obj-attribute name="phone" type="java.lang.String" db-attribute-path="phone"/>
+		<obj-attribute name="requestDate" type="java.util.Date" db-attribute-path="request_date"/>
+	</obj-entity>
+	<obj-entity name="AdhocReport" className="fr.solunea.thaleia.model.AdhocReport" dbEntityName="adhoc_report">
+		<obj-attribute name="addDetails" type="java.lang.Boolean" db-attribute-path="add_details"/>
+		<obj-attribute name="content" type="java.lang.String" db-attribute-path="content"/>
+		<obj-attribute name="csvDelimiter" type="java.lang.String" db-attribute-path="csv_delimiter"/>
+		<obj-attribute name="deliveryFormat" type="java.lang.String" db-attribute-path="delivery_format"/>
+		<obj-attribute name="deliveryMode" type="java.lang.String" db-attribute-path="delivery_mode"/>
+		<obj-attribute name="description" type="java.lang.String" db-attribute-path="description"/>
+		<obj-attribute name="errorRecipients" type="java.lang.String" db-attribute-path="error_recipients"/>
+		<obj-attribute name="mailBody" type="java.lang.String" db-attribute-path="mail_body"/>
+		<obj-attribute name="mailObject" type="java.lang.String" db-attribute-path="mail_object"/>
+		<obj-attribute name="mailRecipients" type="java.lang.String" db-attribute-path="mail_recipients"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+		<obj-attribute name="schedule" type="java.lang.String" db-attribute-path="schedule"/>
+		<obj-attribute name="sftpHost" type="java.lang.String" db-attribute-path="sftp_host"/>
+		<obj-attribute name="sftpLogin" type="java.lang.String" db-attribute-path="sftp_login"/>
+		<obj-attribute name="sftpPassword" type="java.lang.String" db-attribute-path="sftp_password"/>
+		<obj-attribute name="sftpPath" type="java.lang.String" db-attribute-path="sftp_path"/>
+		<obj-attribute name="sftpPort" type="java.lang.String" db-attribute-path="sftp_port"/>
+		<obj-attribute name="type" type="java.lang.String" db-attribute-path="type"/>
+		<obj-attribute name="xlsTemplateBinary" type="byte[]" db-attribute-path="xls_template_binary"/>
+		<obj-attribute name="xlsTemplateFilename" type="java.lang.String" db-attribute-path="xls_template_filename"/>
+		<obj-attribute name="xlsTemplateSheetName" type="java.lang.String" db-attribute-path="xls_template_sheet_name"/>
+	</obj-entity>
+	<obj-entity name="AiccTcaData" className="fr.solunea.thaleia.model.AiccTcaData" dbEntityName="aicc_tca_data">
+		<obj-attribute name="activityId" type="java.lang.String" db-attribute-path="activity_id"/>
+		<obj-attribute name="actorMbox" type="java.lang.String" db-attribute-path="actor_mbox"/>
+		<obj-attribute name="aerouserid" type="java.lang.String" db-attribute-path="aerouserid"/>
+		<obj-attribute name="aerouserpwd" type="java.lang.String" db-attribute-path="aerouserpwd"/>
+		<obj-attribute name="dataType" type="java.lang.String" db-attribute-path="data_type"/>
+		<obj-attribute name="dateTransmission" type="java.util.Date" db-attribute-path="date_transmission"/>
+		<obj-attribute name="jsonobject" type="java.lang.String" db-attribute-path="jsonobject"/>
+		<obj-attribute name="querystring" type="java.lang.String" db-attribute-path="querystring"/>
+		<obj-attribute name="statementRef" type="java.lang.String" db-attribute-path="statement_ref"/>
+		<obj-attribute name="verbId" type="java.lang.String" db-attribute-path="verb_id"/>
+		<obj-attribute name="visible" type="java.lang.String" db-attribute-path="visible"/>
+	</obj-entity>
+	<obj-entity name="Allocation" className="fr.solunea.thaleia.model.Allocation" dbEntityName="allocation">
+		<obj-attribute name="position" type="java.lang.Integer" db-attribute-path="position"/>
+	</obj-entity>
+	<obj-entity name="ApiToken" className="fr.solunea.thaleia.model.ApiToken" dbEntityName="api_token">
+		<obj-attribute name="expirationDate" type="java.util.Date" db-attribute-path="expiration_date"/>
+		<obj-attribute name="value" type="java.lang.String" db-attribute-path="value"/>
+	</obj-entity>
+	<obj-entity name="ApplicationParameter" className="fr.solunea.thaleia.model.ApplicationParameter" dbEntityName="application_parameter">
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+		<obj-attribute name="value" type="java.lang.String" db-attribute-path="value"/>
+	</obj-entity>
+	<obj-entity name="BuyProcess" className="fr.solunea.thaleia.model.BuyProcess" dbEntityName="buy_process">
+		<obj-attribute name="amount" type="java.lang.String" db-attribute-path="amount"/>
+		<obj-attribute name="approvalDate" type="java.util.Date" db-attribute-path="approval_date"/>
+		<obj-attribute name="creationDate" type="java.lang.String" db-attribute-path="creation_date"/>
+		<obj-attribute name="executeUrl" type="java.lang.String" db-attribute-path="execute_url"/>
+		<obj-attribute name="executionDate" type="java.util.Date" db-attribute-path="execution_date"/>
+		<obj-attribute name="invoice" type="java.lang.String" db-attribute-path="invoice"/>
+		<obj-attribute name="paymentExternalId" type="java.lang.String" db-attribute-path="payment_external_id"/>
+		<obj-attribute name="skuGiven" type="java.lang.String" db-attribute-path="sku_given"/>
+		<obj-attribute name="skuRequested" type="java.lang.String" db-attribute-path="sku_requested"/>
+	</obj-entity>
+	<obj-entity name="CmiData" className="fr.solunea.thaleia.model.CmiData" dbEntityName="cmi_data">
+		<obj-attribute name="completionStatus" type="java.lang.String" db-attribute-path="completion_status"/>
+		<obj-attribute name="email" type="java.lang.String" db-attribute-path="email"/>
+		<obj-attribute name="entry" type="java.lang.String" db-attribute-path="entry"/>
+		<obj-attribute name="exit" type="java.lang.String" db-attribute-path="exit"/>
+		<obj-attribute name="location" type="java.lang.String" db-attribute-path="location"/>
+		<obj-attribute name="scoreRaw" type="java.lang.String" db-attribute-path="score_raw"/>
+		<obj-attribute name="sessionTime" type="java.lang.String" db-attribute-path="session_time"/>
+		<obj-attribute name="successStatus" type="java.lang.String" db-attribute-path="success_status"/>
+		<obj-attribute name="suspendData" type="java.lang.String" db-attribute-path="suspend_data"/>
+		<obj-attribute name="totalTime" type="java.lang.String" db-attribute-path="total_time"/>
+	</obj-entity>
+	<obj-entity name="Content" className="fr.solunea.thaleia.model.Content" dbEntityName="content">
+		<obj-attribute name="isModule" type="java.lang.Boolean" db-attribute-path="is_module"/>
+	</obj-entity>
+	<obj-entity name="ContentProperty" className="fr.solunea.thaleia.model.ContentProperty" dbEntityName="content_property">
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+	</obj-entity>
+	<obj-entity name="ContentPropertyName" className="fr.solunea.thaleia.model.ContentPropertyName" dbEntityName="content_property_name">
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+	</obj-entity>
+	<obj-entity name="ContentPropertyValue" className="fr.solunea.thaleia.model.ContentPropertyValue" dbEntityName="content_property_value">
+		<obj-attribute name="value" type="java.lang.String" db-attribute-path="value"/>
+	</obj-entity>
+	<obj-entity name="ContentType" className="fr.solunea.thaleia.model.ContentType" dbEntityName="content_type">
+		<obj-attribute name="isModuleType" type="java.lang.Boolean" db-attribute-path="is_module_type"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+	</obj-entity>
+	<obj-entity name="ContentTypeProperty" className="fr.solunea.thaleia.model.ContentTypeProperty" dbEntityName="content_type_property">
+		<obj-attribute name="hidden" type="java.lang.Boolean" db-attribute-path="hidden"/>
+	</obj-entity>
+	<obj-entity name="ContentVersion" className="fr.solunea.thaleia.model.ContentVersion" dbEntityName="content_version">
+		<obj-attribute name="contentIdentifier" type="java.lang.String" db-attribute-path="content_identifier"/>
+		<obj-attribute name="lastUpdateDate" type="java.util.Date" db-attribute-path="last_update_date"/>
+		<obj-attribute name="revisionNote" type="java.lang.String" db-attribute-path="revision_note"/>
+		<obj-attribute name="revisionNumber" type="java.lang.Integer" db-attribute-path="revision_number"/>
+	</obj-entity>
+	<obj-entity name="ContentVersionTag" className="fr.solunea.thaleia.model.ContentVersionTag" dbEntityName="content_version_tag"/>
+	<obj-entity name="ContributeRole" className="fr.solunea.thaleia.model.ContributeRole" dbEntityName="contribute_role">
+		<obj-attribute name="description" type="java.lang.String" db-attribute-path="description"/>
+	</obj-entity>
+	<obj-entity name="CustomizationFile" className="fr.solunea.thaleia.model.CustomizationFile" dbEntityName="customization_file">
+		<obj-attribute name="localFileName" type="java.lang.String" db-attribute-path="local_file_name"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+	</obj-entity>
+	<obj-entity name="CustomizationProperty" className="fr.solunea.thaleia.model.CustomizationProperty" dbEntityName="customization_property">
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+		<obj-attribute name="value" type="java.lang.String" db-attribute-path="value"/>
+	</obj-entity>
+	<obj-entity name="Domain" className="fr.solunea.thaleia.model.Domain" dbEntityName="domain">
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+	</obj-entity>
+	<obj-entity name="DomainRight" className="fr.solunea.thaleia.model.DomainRight" dbEntityName="domain_right"/>
+	<obj-entity name="DownloadableFile" className="fr.solunea.thaleia.model.DownloadableFile" dbEntityName="downloadable_file">
+		<obj-attribute name="description" type="java.lang.String" db-attribute-path="description"/>
+		<obj-attribute name="filename" type="java.lang.String" db-attribute-path="filename"/>
+		<obj-attribute name="generationDate" type="java.util.Date" db-attribute-path="generation_date"/>
+		<obj-attribute name="lastDownload" type="java.util.Date" db-attribute-path="last_download"/>
+		<obj-attribute name="notifyAuthor" type="java.lang.Boolean" db-attribute-path="notify_author"/>
+		<obj-attribute name="reference" type="java.lang.String" db-attribute-path="reference"/>
+	</obj-entity>
+	<obj-entity name="EditedContent" className="fr.solunea.thaleia.model.EditedContent" dbEntityName="edited_content">
+		<obj-attribute name="contentDirectory" type="java.lang.String" db-attribute-path="content_directory"/>
+		<obj-attribute name="openDate" type="java.util.Date" db-attribute-path="open_date"/>
+		<obj-attribute name="previewDirectory" type="java.lang.String" db-attribute-path="preview_directory"/>
+	</obj-entity>
+	<obj-entity name="Event" className="fr.solunea.thaleia.model.Event" dbEntityName="event">
+		<obj-attribute name="date" type="java.time.LocalDateTime" db-attribute-path="date"/>
+		<obj-attribute name="detail" type="java.lang.String" db-attribute-path="detail"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+	</obj-entity>
+	<obj-entity name="FileUpload" className="fr.solunea.thaleia.model.FileUpload" dbEntityName="file_upload">
+		<obj-attribute name="expiration" type="java.util.Date" db-attribute-path="expiration"/>
+		<obj-attribute name="filename" type="java.lang.String" db-attribute-path="filename"/>
+		<obj-attribute name="parameters" type="java.lang.String" db-attribute-path="parameters"/>
+		<obj-attribute name="treatmentClass" type="java.lang.String" db-attribute-path="treatment_class"/>
+		<obj-attribute name="uploadId" type="java.lang.String" db-attribute-path="upload_id"/>
+	</obj-entity>
+	<obj-entity name="Licence" className="fr.solunea.thaleia.model.Licence" dbEntityName="licence">
+		<obj-attribute name="catalogPriceEuro" type="java.lang.Integer" db-attribute-path="catalog_price_euro"/>
+		<obj-attribute name="includedPublicationCredits" type="java.lang.Integer" db-attribute-path="included_publication_credits"/>
+		<obj-attribute name="isDemo" type="java.lang.Boolean" db-attribute-path="is_demo"/>
+		<obj-attribute name="licenceDurationDays" type="java.lang.Integer" db-attribute-path="licence_duration_days"/>
+		<obj-attribute name="maxPublications" type="java.lang.Integer" db-attribute-path="max_publications"/>
+		<obj-attribute name="maxSizeMo" type="java.lang.Integer" db-attribute-path="max_size_mo"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+		<obj-attribute name="sku" type="java.lang.String" db-attribute-path="sku"/>
+	</obj-entity>
+	<obj-entity name="LicenceHolding" className="fr.solunea.thaleia.model.LicenceHolding" dbEntityName="licence_holding">
+		<obj-attribute name="attributionDate" type="java.util.Date" db-attribute-path="attribution_date"/>
+		<obj-attribute name="canceled" type="java.lang.Boolean" db-attribute-path="canceled"/>
+		<obj-attribute name="endDate" type="java.util.Date" db-attribute-path="end_date"/>
+		<obj-attribute name="includedPublicationsCredits" type="java.lang.Integer" db-attribute-path="included_publications_credits"/>
+		<obj-attribute name="isDemo" type="java.lang.Boolean" db-attribute-path="is_demo"/>
+		<obj-attribute name="maxPublications" type="java.lang.Integer" db-attribute-path="max_publications"/>
+		<obj-attribute name="maxSizeMo" type="java.lang.Integer" db-attribute-path="max_size_mo"/>
+		<obj-attribute name="origin" type="java.lang.String" db-attribute-path="origin"/>
+		<obj-attribute name="startDate" type="java.util.Date" db-attribute-path="start_date"/>
+		<obj-attribute name="userHashedEmail" type="java.lang.String" db-attribute-path="user_hashed_email"/>
+	</obj-entity>
+	<obj-entity name="LmsAccess" className="fr.solunea.thaleia.model.LmsAccess" dbEntityName="lms_access">
+		<obj-attribute name="expirationDate" type="java.util.Date" db-attribute-path="expiration_date"/>
+		<obj-attribute name="lmsApiBaseUrl" type="java.lang.String" db-attribute-path="lms_api_base_url"/>
+		<obj-attribute name="lmsApiLogin" type="java.lang.String" db-attribute-path="lms_api_login"/>
+		<obj-attribute name="lmsApiPassword" type="java.lang.String" db-attribute-path="lms_api_password"/>
+		<obj-attribute name="lmsContentAuthorUser" type="java.lang.String" db-attribute-path="lms_content_author_user"/>
+		<obj-attribute name="lmsContentFolder" type="java.lang.String" db-attribute-path="lms_content_folder"/>
+		<obj-attribute name="lmsContentImportJob" type="java.lang.String" db-attribute-path="lms_content_import_job"/>
+		<obj-attribute name="lmsDeeplinkClassUrl" type="java.lang.String" db-attribute-path="lms_deeplink_class_url"/>
+		<obj-attribute name="lmsDeeplinkRegistrationUrl" type="java.lang.String" db-attribute-path="lms_deeplink_registration_url"/>
+		<obj-attribute name="lmsPlayerTemplate" type="java.lang.String" db-attribute-path="lms_player_template"/>
+		<obj-attribute name="lmsSecurityDomain" type="java.lang.String" db-attribute-path="lms_security_domain"/>
+		<obj-attribute name="lmsServiceImplementation" type="java.lang.String" db-attribute-path="lms_service_implementation"/>
+		<obj-attribute name="lmsSftpFolder" type="java.lang.String" db-attribute-path="lms_sftp_folder"/>
+		<obj-attribute name="lmsSftpLogin" type="java.lang.String" db-attribute-path="lms_sftp_login"/>
+		<obj-attribute name="lmsSftpPassword" type="java.lang.String" db-attribute-path="lms_sftp_password"/>
+		<obj-attribute name="lmsSftpPort" type="java.lang.String" db-attribute-path="lms_sftp_port"/>
+		<obj-attribute name="lmsSftpUrl" type="java.lang.String" db-attribute-path="lms_sftp_url"/>
+	</obj-entity>
+	<obj-entity name="Locale" className="fr.solunea.thaleia.model.Locale" dbEntityName="locale">
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+	</obj-entity>
+	<obj-entity name="LrsEndpoint" className="fr.solunea.thaleia.model.LrsEndpoint" dbEntityName="lrs_endpoint">
+		<obj-attribute name="active" type="java.lang.Boolean" db-attribute-path="active"/>
+		<obj-attribute name="lastCommunicationDate" type="java.util.Date" db-attribute-path="last_communication_date"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+		<obj-attribute name="password" type="java.lang.String" db-attribute-path="password"/>
+		<obj-attribute name="passwordPersonas" type="java.lang.String" db-attribute-path="password_personas"/>
+		<obj-attribute name="url1" type="java.lang.String" db-attribute-path="url1"/>
+		<obj-attribute name="url2" type="java.lang.String" db-attribute-path="url2"/>
+		<obj-attribute name="username" type="java.lang.String" db-attribute-path="username"/>
+		<obj-attribute name="usernamePersonas" type="java.lang.String" db-attribute-path="username_personas"/>
+		<obj-attribute name="xapiversion" type="java.lang.String" db-attribute-path="xapiversion"/>
+	</obj-entity>
+	<obj-entity name="LrsEndpointActivity" className="fr.solunea.thaleia.model.LrsEndpointActivity" dbEntityName="lrs_endpoint_activity">
+		<obj-attribute name="activityId" type="java.lang.String" db-attribute-path="activity_id"/>
+		<obj-attribute name="jsonData" type="java.lang.String" db-attribute-path="json_data"/>
+	</obj-entity>
+	<obj-entity name="LrsEndpointActivityProfile" className="fr.solunea.thaleia.model.LrsEndpointActivityProfile" dbEntityName="lrs_endpoint_activity_profile">
+		<obj-attribute name="jsonObject" type="java.lang.String" db-attribute-path="json_object"/>
+		<obj-attribute name="profileId" type="java.lang.String" db-attribute-path="profile_id"/>
+	</obj-entity>
+	<obj-entity name="LrsEndpointPersona" className="fr.solunea.thaleia.model.LrsEndpointPersona" dbEntityName="lrs_endpoint_persona">
+		<obj-attribute name="persona" type="java.lang.String" db-attribute-path="persona"/>
+		<obj-attribute name="personaAttributes" type="java.lang.String" db-attribute-path="persona_attributes"/>
+		<obj-attribute name="personaIdentifiers" type="java.lang.String" db-attribute-path="persona_identifiers"/>
+	</obj-entity>
+	<obj-entity name="LrsEndpointStatement" className="fr.solunea.thaleia.model.LrsEndpointStatement" dbEntityName="lrs_endpoint_statement">
+		<obj-attribute name="dateRetrieved" type="java.util.Date" db-attribute-path="date_retrieved"/>
+		<obj-attribute name="jsondata" type="java.lang.String" db-attribute-path="jsondata"/>
+		<obj-attribute name="statementId" type="java.lang.String" db-attribute-path="statement_id"/>
+	</obj-entity>
+	<obj-entity name="MailTemplate" className="fr.solunea.thaleia.model.MailTemplate" dbEntityName="mail_template">
+		<obj-attribute name="attachment" type="java.lang.String" db-attribute-path="attachment"/>
+		<obj-attribute name="bcc" type="java.lang.String" db-attribute-path="bcc"/>
+		<obj-attribute name="body" type="java.lang.String" db-attribute-path="body"/>
+		<obj-attribute name="locale" type="java.lang.String" db-attribute-path="locale"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+		<obj-attribute name="object" type="java.lang.String" db-attribute-path="object"/>
+		<obj-attribute name="sender" type="java.lang.String" db-attribute-path="sender"/>
+	</obj-entity>
+	<obj-entity name="Plugin" className="fr.solunea.thaleia.model.Plugin" dbEntityName="plugin">
+		<obj-attribute name="filename" type="java.lang.String" db-attribute-path="filename"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+	</obj-entity>
+	<obj-entity name="Publication" className="fr.solunea.thaleia.model.Publication" dbEntityName="publication">
+		<obj-attribute name="active" type="java.lang.Boolean" db-attribute-path="active"/>
+		<obj-attribute name="date" type="java.util.Date" db-attribute-path="date"/>
+		<obj-attribute name="isOnLms" type="java.lang.Boolean" db-attribute-path="is_on_lms"/>
+		<obj-attribute name="launcher" type="java.lang.String" db-attribute-path="launcher"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+		<obj-attribute name="password" type="java.lang.String" db-attribute-path="password"/>
+		<obj-attribute name="publicAccess" type="java.lang.Boolean" db-attribute-path="public_access"/>
+		<obj-attribute name="reference" type="java.lang.String" db-attribute-path="reference"/>
+	</obj-entity>
+	<obj-entity name="PublicationRecipient" className="fr.solunea.thaleia.model.PublicationRecipient" dbEntityName="publication_recipient">
+		<obj-attribute name="email" type="java.lang.String" db-attribute-path="email"/>
+		<obj-attribute name="url" type="java.lang.String" db-attribute-path="url"/>
+	</obj-entity>
+	<obj-entity name="PublicationSession" className="fr.solunea.thaleia.model.PublicationSession" dbEntityName="publication_session">
+		<obj-attribute name="token" type="java.lang.String" db-attribute-path="token"/>
+		<obj-attribute name="username" type="java.lang.String" db-attribute-path="username"/>
+		<obj-attribute name="validUntil" type="java.util.Date" db-attribute-path="valid_until"/>
+	</obj-entity>
+	<obj-entity name="StatData" className="fr.solunea.thaleia.model.StatData" dbEntityName="stat_data">
+		<obj-attribute name="actorMbox" type="java.lang.String" db-attribute-path="actor_mbox"/>
+		<obj-attribute name="actorName" type="java.lang.String" db-attribute-path="actor_name"/>
+		<obj-attribute name="actorObjecttype" type="java.lang.String" db-attribute-path="actor_objecttype"/>
+		<obj-attribute name="authorityAccountHomepage" type="java.lang.String" db-attribute-path="authority_account_homepage"/>
+		<obj-attribute name="authorityAccountName" type="java.lang.String" db-attribute-path="authority_account_name"/>
+		<obj-attribute name="authorityMbox" type="java.lang.String" db-attribute-path="authority_mbox"/>
+		<obj-attribute name="authorityName" type="java.lang.String" db-attribute-path="authority_name"/>
+		<obj-attribute name="authorityObjecttype" type="java.lang.String" db-attribute-path="authority_objecttype"/>
+		<obj-attribute name="contextContextactivitiesGrouping" type="java.lang.String" db-attribute-path="context_contextactivities_grouping"/>
+		<obj-attribute name="contextContextactivitiesOther" type="java.lang.String" db-attribute-path="context_contextactivities_other"/>
+		<obj-attribute name="contextContextactivitiesParent" type="java.lang.String" db-attribute-path="context_contextactivities_parent"/>
+		<obj-attribute name="jsonobject" type="java.lang.String" db-attribute-path="jsonobject"/>
+		<obj-attribute name="objectDefinitionDescription" type="java.lang.String" db-attribute-path="object_definition_description"/>
+		<obj-attribute name="objectDefinitionInteractiontype" type="java.lang.String" db-attribute-path="object_definition_interactiontype"/>
+		<obj-attribute name="objectDefinitionNameEnus" type="java.lang.String" db-attribute-path="object_definition_name_enus"/>
+		<obj-attribute name="objectDefinitionType" type="java.lang.String" db-attribute-path="object_definition_type"/>
+		<obj-attribute name="objectIdUrl" type="java.lang.String" db-attribute-path="object_id_url"/>
+		<obj-attribute name="objectObjecttype" type="java.lang.String" db-attribute-path="object_objecttype"/>
+		<obj-attribute name="publicationReference" type="java.lang.String" db-attribute-path="publication_reference"/>
+		<obj-attribute name="received" type="java.util.Date" db-attribute-path="received"/>
+		<obj-attribute name="resultCompletion" type="java.lang.Boolean" db-attribute-path="result_completion"/>
+		<obj-attribute name="resultDuration" type="java.lang.String" db-attribute-path="result_duration"/>
+		<obj-attribute name="resultExtensionsCompletionstatus" type="java.lang.String" db-attribute-path="result_extensions_completionstatus"/>
+		<obj-attribute name="resultExtensionsLocation" type="java.lang.String" db-attribute-path="result_extensions_location"/>
+		<obj-attribute name="resultExtensionsProgressmeasure" type="java.lang.String" db-attribute-path="result_extensions_progressmeasure"/>
+		<obj-attribute name="resultExtensionsScormversion" type="java.lang.String" db-attribute-path="result_extensions_scormversion"/>
+		<obj-attribute name="resultExtensionsSuccessstatus" type="java.lang.String" db-attribute-path="result_extensions_successstatus"/>
+		<obj-attribute name="resultResponse" type="java.lang.String" db-attribute-path="result_response"/>
+		<obj-attribute name="resultScoreMax" type="java.lang.Float" db-attribute-path="result_score_max"/>
+		<obj-attribute name="resultScoreMin" type="java.lang.Float" db-attribute-path="result_score_min"/>
+		<obj-attribute name="resultScoreRaw" type="java.lang.Float" db-attribute-path="result_score_raw"/>
+		<obj-attribute name="resultScoreScaled" type="java.lang.Float" db-attribute-path="result_score_scaled"/>
+		<obj-attribute name="resultSuccess" type="java.lang.Boolean" db-attribute-path="result_success"/>
+		<obj-attribute name="timestamp" type="java.lang.String" db-attribute-path="timestamp"/>
+		<obj-attribute name="verbDisplayEnus" type="java.lang.String" db-attribute-path="verb_display_enus"/>
+		<obj-attribute name="verbId" type="java.lang.String" db-attribute-path="verb_id"/>
+	</obj-entity>
+	<obj-entity name="StatementProcessing" className="fr.solunea.thaleia.model.StatementProcessing" dbEntityName="statement_processing">
+		<obj-attribute name="description" type="java.lang.String" db-attribute-path="description"/>
+		<obj-attribute name="destinationLogin" type="java.lang.String" db-attribute-path="destination_login"/>
+		<obj-attribute name="destinationPassword" type="java.lang.String" db-attribute-path="destination_password"/>
+		<obj-attribute name="destinationUrl" type="java.lang.String" db-attribute-path="destination_url"/>
+		<obj-attribute name="filter" type="java.lang.String" db-attribute-path="filter"/>
+		<obj-attribute name="processing" type="java.lang.String" db-attribute-path="processing"/>
+		<obj-attribute name="storeRawResult" type="java.lang.Boolean" db-attribute-path="store_raw_result"/>
+		<obj-attribute name="storeResult" type="java.lang.Boolean" db-attribute-path="store_result"/>
+	</obj-entity>
+	<obj-entity name="Tag" className="fr.solunea.thaleia.model.Tag" dbEntityName="tag">
+		<obj-attribute name="value" type="java.lang.String" db-attribute-path="value"/>
+	</obj-entity>
+	<obj-entity name="TempDir" className="fr.solunea.thaleia.model.TempDir" dbEntityName="temp_dir">
+		<obj-attribute name="creationDate" type="java.util.Date" db-attribute-path="creation_date"/>
+		<obj-attribute name="path" type="java.lang.String" db-attribute-path="path"/>
+		<obj-attribute name="publicId" type="java.lang.String" db-attribute-path="public_id"/>
+	</obj-entity>
+	<obj-entity name="TempDirFile" className="fr.solunea.thaleia.model.TempDirFile" dbEntityName="temp_dir_file">
+		<obj-attribute name="fileName" type="java.lang.String" db-attribute-path="file_name"/>
+		<obj-attribute name="publicId" type="java.lang.String" db-attribute-path="public_id"/>
+		<obj-attribute name="size" type="java.lang.Long" db-attribute-path="size"/>
+	</obj-entity>
+	<obj-entity name="User" className="fr.solunea.thaleia.model.User" dbEntityName="user_account">
+		<obj-attribute name="expiration" type="java.util.Date" db-attribute-path="expiration"/>
+		<obj-attribute name="externalSignin" type="java.lang.String" db-attribute-path="external_signin"/>
+		<obj-attribute name="isAdmin" type="java.lang.Boolean" db-attribute-path="is_admin"/>
+		<obj-attribute name="isEmailValidated" type="java.lang.Boolean" db-attribute-path="is_email_validated"/>
+		<obj-attribute name="lastAccess" type="java.util.Date" db-attribute-path="last_access"/>
+		<obj-attribute name="login" type="java.lang.String" db-attribute-path="login"/>
+		<obj-attribute name="menuContents" type="java.lang.Boolean" db-attribute-path="menu_contents"/>
+		<obj-attribute name="menuModules" type="java.lang.Boolean" db-attribute-path="menu_modules"/>
+		<obj-attribute name="menuTools" type="java.lang.Boolean" db-attribute-path="menu_tools"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+		<obj-attribute name="newsletter" type="java.lang.Boolean" db-attribute-path="newsletter"/>
+		<obj-attribute name="password" type="java.lang.String" db-attribute-path="password"/>
+		<obj-attribute name="passwordCreationDate" type="java.util.Date" db-attribute-path="password_creation_date"/>
+		<obj-attribute name="postalAddress" type="java.lang.String" db-attribute-path="postal_address"/>
+		<obj-attribute name="resetPasswordCode" type="java.lang.String" db-attribute-path="reset_password_code"/>
+		<pre-remove method-name="onPreRemove"/>
+	</obj-entity>
+	<obj-entity name="ValueType" className="fr.solunea.thaleia.model.ValueType" dbEntityName="value_type">
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+	</obj-entity>
+	<db-relationship name="created_user" source="account_request" target="user_account">
+		<db-attribute-pair source="created_user_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="author" source="adhoc_report" target="user_account">
+		<db-attribute-pair source="author_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="child" source="allocation" target="content">
+		<db-attribute-pair source="child_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="parent" source="allocation" target="content_version">
+		<db-attribute-pair source="parent_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="user" source="api_token" target="user_account">
+		<db-attribute-pair source="user_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="payer" source="buy_process" target="user_account">
+		<db-attribute-pair source="payer_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="publication" source="cmi_data" target="publication">
+		<db-attribute-pair source="publication_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="allocations" source="content" target="allocation" toMany="true">
+		<db-attribute-pair source="id" target="child_id"/>
+	</db-relationship>
+	<db-relationship name="contribute_roles" source="content" target="contribute_role" toMany="true">
+		<db-attribute-pair source="id" target="content_id"/>
+	</db-relationship>
+	<db-relationship name="domain" source="content" target="domain">
+		<db-attribute-pair source="domain_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="versions" source="content" target="content_version" toMany="true">
+		<db-attribute-pair source="id" target="content_id"/>
+	</db-relationship>
+	<db-relationship name="content_types" source="content_property" target="content_type_property" toMany="true">
+		<db-attribute-pair source="id" target="content_property_id"/>
+	</db-relationship>
+	<db-relationship name="value_type" source="content_property" target="value_type">
+		<db-attribute-pair source="value_type_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="values" source="content_property" target="content_property_value" toMany="true">
+		<db-attribute-pair source="id" target="content_property_id"/>
+	</db-relationship>
+	<db-relationship name="content_type_property" source="content_property_name" target="content_type_property">
+		<db-attribute-pair source="content_type_property_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="locale" source="content_property_name" target="locale">
+		<db-attribute-pair source="locale_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="content_version" source="content_property_value" target="content_version">
+		<db-attribute-pair source="content_version_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="edited" source="content_property_value" target="edited_content" toMany="true">
+		<db-attribute-pair source="id" target="content_property_value_id"/>
+	</db-relationship>
+	<db-relationship name="locale" source="content_property_value" target="locale">
+		<db-attribute-pair source="locale_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="property" source="content_property_value" target="content_property">
+		<db-attribute-pair source="content_property_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="content_versions" source="content_type" target="content_version" toMany="true">
+		<db-attribute-pair source="id" target="content_type_id"/>
+	</db-relationship>
+	<db-relationship name="properties" source="content_type" target="content_type_property" toMany="true">
+		<db-attribute-pair source="id" target="content_type_id"/>
+	</db-relationship>
+	<db-relationship name="content_property" source="content_type_property" target="content_property">
+		<db-attribute-pair source="content_property_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="content_type" source="content_type_property" target="content_type">
+		<db-attribute-pair source="content_type_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="names" source="content_type_property" target="content_property_name" toMany="true">
+		<db-attribute-pair source="id" target="content_type_property_id"/>
+	</db-relationship>
+	<db-relationship name="author" source="content_version" target="user_account">
+		<db-attribute-pair source="author_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="childs" source="content_version" target="allocation" toMany="true">
+		<db-attribute-pair source="id" target="parent_id"/>
+	</db-relationship>
+	<db-relationship name="content" source="content_version" target="content">
+		<db-attribute-pair source="content_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="content_type" source="content_version" target="content_type">
+		<db-attribute-pair source="content_type_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="properties" source="content_version" target="content_property_value" toMany="true">
+		<db-attribute-pair source="id" target="content_version_id"/>
+	</db-relationship>
+	<db-relationship name="publications" source="content_version" target="publication" toMany="true">
+		<db-attribute-pair source="id" target="source_version_id"/>
+	</db-relationship>
+	<db-relationship name="tags" source="content_version" target="content_version_tag" toMany="true">
+		<db-attribute-pair source="id" target="content_version_id"/>
+	</db-relationship>
+	<db-relationship name="content_version" source="content_version_tag" target="content_version">
+		<db-attribute-pair source="content_version_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="tag" source="content_version_tag" target="tag">
+		<db-attribute-pair source="tag_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="content" source="contribute_role" target="content">
+		<db-attribute-pair source="content_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="user" source="contribute_role" target="user_account">
+		<db-attribute-pair source="user_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="domain" source="customization_file" target="domain">
+		<db-attribute-pair source="domain_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="plugin" source="customization_file" target="plugin">
+		<db-attribute-pair source="plugin_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="domain" source="customization_property" target="domain">
+		<db-attribute-pair source="domain_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="plugin" source="customization_property" target="plugin">
+		<db-attribute-pair source="plugin_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="childs" source="domain" target="domain" toMany="true">
+		<db-attribute-pair source="id" target="parent_id"/>
+	</db-relationship>
+	<db-relationship name="contents" source="domain" target="content" toMany="true">
+		<db-attribute-pair source="id" target="domain_id"/>
+	</db-relationship>
+	<db-relationship name="customization_files" source="domain" target="customization_file" toMany="true">
+		<db-attribute-pair source="id" target="domain_id"/>
+	</db-relationship>
+	<db-relationship name="customization_properties" source="domain" target="customization_property" toMany="true">
+		<db-attribute-pair source="id" target="domain_id"/>
+	</db-relationship>
+	<db-relationship name="parent" source="domain" target="domain">
+		<db-attribute-pair source="parent_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="plugins" source="domain" target="plugin" toMany="true">
+		<db-attribute-pair source="id" target="domain_id"/>
+	</db-relationship>
+	<db-relationship name="right_given_to" source="domain" target="domain_right" toMany="true">
+		<db-attribute-pair source="id" target="domain_to_id"/>
+	</db-relationship>
+	<db-relationship name="right_on" source="domain" target="domain_right" toMany="true">
+		<db-attribute-pair source="id" target="domain_from_id"/>
+	</db-relationship>
+	<db-relationship name="users" source="domain" target="user_account" toMany="true">
+		<db-attribute-pair source="id" target="domain_id"/>
+	</db-relationship>
+	<db-relationship name="right_on" source="domain_right" target="domain">
+		<db-attribute-pair source="domain_to_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="right_owner" source="domain_right" target="domain">
+		<db-attribute-pair source="domain_from_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="author" source="downloadable_file" target="user_account">
+		<db-attribute-pair source="author_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="downloadable_by" source="downloadable_file" target="user_account">
+		<db-attribute-pair source="downloadable_by_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="author" source="edited_content" target="user_account">
+		<db-attribute-pair source="author_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="content_property_value" source="edited_content" target="content_property_value">
+		<db-attribute-pair source="content_property_value_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="user" source="event" target="user_account">
+		<db-attribute-pair source="user_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="user" source="file_upload" target="user_account">
+		<db-attribute-pair source="user_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="holdings" source="licence" target="licence_holding" toMany="true">
+		<db-attribute-pair source="id" target="licence_id"/>
+	</db-relationship>
+	<db-relationship name="licence" source="licence_holding" target="licence">
+		<db-attribute-pair source="licence_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="user" source="licence_holding" target="user_account">
+		<db-attribute-pair source="user_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="user" source="lms_access" target="user_account">
+		<db-attribute-pair source="user_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="content_properties" source="locale" target="content_property_value" toMany="true">
+		<db-attribute-pair source="id" target="locale_id"/>
+	</db-relationship>
+	<db-relationship name="content_property_names" source="locale" target="content_property_name" toMany="true">
+		<db-attribute-pair source="id" target="locale_id"/>
+	</db-relationship>
+	<db-relationship name="publication" source="locale" target="publication" toMany="true">
+		<db-attribute-pair source="id" target="source_locale_id"/>
+	</db-relationship>
+	<db-relationship name="users" source="locale" target="user_account" toMany="true">
+		<db-attribute-pair source="id" target="prefered_locale_id"/>
+	</db-relationship>
+	<db-relationship name="activities" source="lrs_endpoint" target="lrs_endpoint_activity" toMany="true">
+		<db-attribute-pair source="id" target="lrs_endpoint_id"/>
+	</db-relationship>
+	<db-relationship name="owner" source="lrs_endpoint" target="user_account">
+		<db-attribute-pair source="owner_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="personas" source="lrs_endpoint" target="lrs_endpoint_persona" toMany="true">
+		<db-attribute-pair source="id" target="lrs_endpoint_id"/>
+	</db-relationship>
+	<db-relationship name="statement_processings" source="lrs_endpoint" target="statement_processing" toMany="true">
+		<db-attribute-pair source="id" target="lrs_endpoint_id"/>
+	</db-relationship>
+	<db-relationship name="statements" source="lrs_endpoint" target="lrs_endpoint_statement" toMany="true">
+		<db-attribute-pair source="id" target="lrs_endpoint_id"/>
+	</db-relationship>
+	<db-relationship name="lrs_endpoint" source="lrs_endpoint_activity" target="lrs_endpoint">
+		<db-attribute-pair source="lrs_endpoint_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="profiles" source="lrs_endpoint_activity" target="lrs_endpoint_activity_profile" toMany="true">
+		<db-attribute-pair source="id" target="activity_id"/>
+	</db-relationship>
+	<db-relationship name="activity" source="lrs_endpoint_activity_profile" target="lrs_endpoint_activity">
+		<db-attribute-pair source="activity_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="lrs_endpoint" source="lrs_endpoint_persona" target="lrs_endpoint">
+		<db-attribute-pair source="lrs_endpoint_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="lrs_endpoint" source="lrs_endpoint_statement" target="lrs_endpoint">
+		<db-attribute-pair source="lrs_endpoint_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="customization_files" source="plugin" target="customization_file" toMany="true">
+		<db-attribute-pair source="id" target="plugin_id"/>
+	</db-relationship>
+	<db-relationship name="customization_properties" source="plugin" target="customization_property" toMany="true">
+		<db-attribute-pair source="id" target="plugin_id"/>
+	</db-relationship>
+	<db-relationship name="domain" source="plugin" target="domain">
+		<db-attribute-pair source="domain_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="publicationSessions" source="publication" target="publication_session" toMany="true">
+		<db-attribute-pair source="id" target="publication_id"/>
+	</db-relationship>
+	<db-relationship name="recipients" source="publication" target="publication_recipient" toMany="true">
+		<db-attribute-pair source="id" target="publication_id"/>
+	</db-relationship>
+	<db-relationship name="source_locale" source="publication" target="locale">
+		<db-attribute-pair source="source_locale_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="source_version" source="publication" target="content_version">
+		<db-attribute-pair source="source_version_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="suspend_datas" source="publication" target="cmi_data" toMany="true">
+		<db-attribute-pair source="id" target="publication_id"/>
+	</db-relationship>
+	<db-relationship name="user" source="publication" target="user_account">
+		<db-attribute-pair source="user_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="publication" source="publication_recipient" target="publication">
+		<db-attribute-pair source="publication_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="publication" source="publication_session" target="publication">
+		<db-attribute-pair source="publication_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="owner" source="statement_processing" target="user_account">
+		<db-attribute-pair source="user_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="source_lrs" source="statement_processing" target="lrs_endpoint">
+		<db-attribute-pair source="lrs_endpoint_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="content_versions" source="tag" target="content_version_tag" toMany="true">
+		<db-attribute-pair source="id" target="tag_id"/>
+	</db-relationship>
+	<db-relationship name="files" source="temp_dir" target="temp_dir_file" toDependentPK="true" toMany="true">
+		<db-attribute-pair source="id" target="temp_dir_id"/>
+	</db-relationship>
+	<db-relationship name="owner" source="temp_dir" target="user_account">
+		<db-attribute-pair source="owner_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="temp_dir" source="temp_dir_file" target="temp_dir">
+		<db-attribute-pair source="temp_dir_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="adhoc_reports" source="user_account" target="adhoc_report" toMany="true">
+		<db-attribute-pair source="id" target="author_id"/>
+	</db-relationship>
+	<db-relationship name="apiTokens" source="user_account" target="api_token" toMany="true">
+		<db-attribute-pair source="id" target="user_id"/>
+	</db-relationship>
+	<db-relationship name="buy_processes" source="user_account" target="buy_process" toMany="true">
+		<db-attribute-pair source="id" target="payer_id"/>
+	</db-relationship>
+	<db-relationship name="contents" source="user_account" target="content_version" toMany="true">
+		<db-attribute-pair source="id" target="author_id"/>
+	</db-relationship>
+	<db-relationship name="contribute_roles" source="user_account" target="contribute_role" toMany="true">
+		<db-attribute-pair source="id" target="user_id"/>
+	</db-relationship>
+	<db-relationship name="created_by_request" source="user_account" target="account_request">
+		<db-attribute-pair source="id" target="created_user_id"/>
+	</db-relationship>
+	<db-relationship name="domain" source="user_account" target="domain">
+		<db-attribute-pair source="domain_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="downloadable_files" source="user_account" target="downloadable_file" toMany="true">
+		<db-attribute-pair source="id" target="downloadable_by_id"/>
+	</db-relationship>
+	<db-relationship name="downloadable_files_published" source="user_account" target="downloadable_file" toMany="true">
+		<db-attribute-pair source="id" target="author_id"/>
+	</db-relationship>
+	<db-relationship name="edited_contents" source="user_account" target="edited_content" toMany="true">
+		<db-attribute-pair source="id" target="author_id"/>
+	</db-relationship>
+	<db-relationship name="file_uploads" source="user_account" target="file_upload" toMany="true">
+		<db-attribute-pair source="id" target="user_id"/>
+	</db-relationship>
+	<db-relationship name="licences" source="user_account" target="licence_holding" toMany="true">
+		<db-attribute-pair source="id" target="user_id"/>
+	</db-relationship>
+	<db-relationship name="lms_access" source="user_account" target="lms_access">
+		<db-attribute-pair source="id" target="user_id"/>
+	</db-relationship>
+	<db-relationship name="lrs_endpoints" source="user_account" target="lrs_endpoint" toMany="true">
+		<db-attribute-pair source="id" target="owner_id"/>
+	</db-relationship>
+	<db-relationship name="preferedLocale" source="user_account" target="locale">
+		<db-attribute-pair source="prefered_locale_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="publications" source="user_account" target="publication" toMany="true">
+		<db-attribute-pair source="id" target="user_id"/>
+	</db-relationship>
+	<db-relationship name="statement_processings" source="user_account" target="statement_processing" toMany="true">
+		<db-attribute-pair source="id" target="user_id"/>
+	</db-relationship>
+	<db-relationship name="temp_dirs" source="user_account" target="temp_dir" toMany="true">
+		<db-attribute-pair source="id" target="owner_id"/>
+	</db-relationship>
+	<db-relationship name="events" source="user_account" target="event" toMany="true">
+		<db-attribute-pair source="id" target="user_id"/>
+	</db-relationship>
+	<db-relationship name="content_properties" source="value_type" target="content_property" toMany="true">
+		<db-attribute-pair source="id" target="value_type_id"/>
+	</db-relationship>
+	<obj-relationship name="createdUser" source="AccountRequest" target="User" deleteRule="Nullify" db-relationship-path="created_user"/>
+	<obj-relationship name="author" source="AdhocReport" target="User" deleteRule="Nullify" db-relationship-path="author"/>
+	<obj-relationship name="child" source="Allocation" target="Content" deleteRule="Nullify" db-relationship-path="child"/>
+	<obj-relationship name="parent" source="Allocation" target="ContentVersion" deleteRule="Nullify" db-relationship-path="parent"/>
+	<obj-relationship name="user" source="ApiToken" target="User" deleteRule="Nullify" db-relationship-path="user"/>
+	<obj-relationship name="payer" source="BuyProcess" target="User" deleteRule="Nullify" db-relationship-path="payer"/>
+	<obj-relationship name="publication" source="CmiData" target="Publication" deleteRule="Nullify" db-relationship-path="publication"/>
+	<obj-relationship name="allocations" source="Content" target="Allocation" deleteRule="Deny" db-relationship-path="allocations"/>
+	<obj-relationship name="contributeRoles" source="Content" target="ContributeRole" deleteRule="Deny" db-relationship-path="contribute_roles"/>
+	<obj-relationship name="domain" source="Content" target="Domain" deleteRule="Nullify" db-relationship-path="domain"/>
+	<obj-relationship name="versions" source="Content" target="ContentVersion" deleteRule="Cascade" db-relationship-path="versions"/>
+	<obj-relationship name="contentTypes" source="ContentProperty" target="ContentTypeProperty" deleteRule="Deny" db-relationship-path="content_types"/>
+	<obj-relationship name="valueType" source="ContentProperty" target="ValueType" deleteRule="Nullify" db-relationship-path="value_type"/>
+	<obj-relationship name="values" source="ContentProperty" target="ContentPropertyValue" deleteRule="Deny" db-relationship-path="values"/>
+	<obj-relationship name="contentTypeProperty" source="ContentPropertyName" target="ContentTypeProperty" deleteRule="Nullify" db-relationship-path="content_type_property"/>
+	<obj-relationship name="locale" source="ContentPropertyName" target="Locale" deleteRule="Nullify" db-relationship-path="locale"/>
+	<obj-relationship name="contentVersion" source="ContentPropertyValue" target="ContentVersion" deleteRule="Nullify" db-relationship-path="content_version"/>
+	<obj-relationship name="edited" source="ContentPropertyValue" target="EditedContent" deleteRule="Cascade" db-relationship-path="edited"/>
+	<obj-relationship name="locale" source="ContentPropertyValue" target="Locale" deleteRule="Nullify" db-relationship-path="locale"/>
+	<obj-relationship name="property" source="ContentPropertyValue" target="ContentProperty" deleteRule="Nullify" db-relationship-path="property"/>
+	<obj-relationship name="contentVersions" source="ContentType" target="ContentVersion" deleteRule="Deny" db-relationship-path="content_versions"/>
+	<obj-relationship name="properties" source="ContentType" target="ContentTypeProperty" deleteRule="Deny" db-relationship-path="properties"/>
+	<obj-relationship name="contentProperty" source="ContentTypeProperty" target="ContentProperty" deleteRule="Nullify" db-relationship-path="content_property"/>
+	<obj-relationship name="contentType" source="ContentTypeProperty" target="ContentType" deleteRule="Nullify" db-relationship-path="content_type"/>
+	<obj-relationship name="names" source="ContentTypeProperty" target="ContentPropertyName" deleteRule="Deny" db-relationship-path="names"/>
+	<obj-relationship name="author" source="ContentVersion" target="User" deleteRule="Nullify" db-relationship-path="author"/>
+	<obj-relationship name="childs" source="ContentVersion" target="Allocation" deleteRule="Deny" db-relationship-path="childs"/>
+	<obj-relationship name="content" source="ContentVersion" target="Content" deleteRule="Nullify" db-relationship-path="content"/>
+	<obj-relationship name="contentType" source="ContentVersion" target="ContentType" deleteRule="Nullify" db-relationship-path="content_type"/>
+	<obj-relationship name="properties" source="ContentVersion" target="ContentPropertyValue" deleteRule="Cascade" db-relationship-path="properties"/>
+	<obj-relationship name="publications" source="ContentVersion" target="Publication" deleteRule="Deny" db-relationship-path="publications"/>
+	<obj-relationship name="tags" source="ContentVersion" target="ContentVersionTag" deleteRule="Cascade" db-relationship-path="tags"/>
+	<obj-relationship name="contentVersion" source="ContentVersionTag" target="ContentVersion" deleteRule="Nullify" db-relationship-path="content_version"/>
+	<obj-relationship name="tag" source="ContentVersionTag" target="Tag" deleteRule="Nullify" db-relationship-path="tag"/>
+	<obj-relationship name="content" source="ContributeRole" target="Content" deleteRule="Nullify" db-relationship-path="content"/>
+	<obj-relationship name="user" source="ContributeRole" target="User" deleteRule="Nullify" db-relationship-path="user"/>
+	<obj-relationship name="domain" source="CustomizationFile" target="Domain" deleteRule="Nullify" db-relationship-path="domain"/>
+	<obj-relationship name="plugin" source="CustomizationFile" target="Plugin" deleteRule="Nullify" db-relationship-path="plugin"/>
+	<obj-relationship name="domain" source="CustomizationProperty" target="Domain" deleteRule="Nullify" db-relationship-path="domain"/>
+	<obj-relationship name="plugin" source="CustomizationProperty" target="Plugin" deleteRule="Nullify" db-relationship-path="plugin"/>
+	<obj-relationship name="childs" source="Domain" target="Domain" deleteRule="Deny" db-relationship-path="childs"/>
+	<obj-relationship name="contents" source="Domain" target="Content" deleteRule="Deny" db-relationship-path="contents"/>
+	<obj-relationship name="customizationFiles" source="Domain" target="CustomizationFile" deleteRule="Deny" db-relationship-path="customization_files"/>
+	<obj-relationship name="customizationProperties" source="Domain" target="CustomizationProperty" deleteRule="Deny" db-relationship-path="customization_properties"/>
+	<obj-relationship name="parent" source="Domain" target="Domain" deleteRule="Nullify" db-relationship-path="parent"/>
+	<obj-relationship name="plugins" source="Domain" target="Plugin" deleteRule="Deny" db-relationship-path="plugins"/>
+	<obj-relationship name="rightGivenTo" source="Domain" target="DomainRight" deleteRule="Deny" db-relationship-path="right_given_to"/>
+	<obj-relationship name="rightOn" source="Domain" target="DomainRight" deleteRule="Deny" db-relationship-path="right_on"/>
+	<obj-relationship name="users" source="Domain" target="User" deleteRule="Deny" db-relationship-path="users"/>
+	<obj-relationship name="rightOn" source="DomainRight" target="Domain" deleteRule="Nullify" db-relationship-path="right_on"/>
+	<obj-relationship name="rightOwner" source="DomainRight" target="Domain" deleteRule="Nullify" db-relationship-path="right_owner"/>
+	<obj-relationship name="author" source="DownloadableFile" target="User" deleteRule="Nullify" db-relationship-path="author"/>
+	<obj-relationship name="downloadableBy" source="DownloadableFile" target="User" deleteRule="Nullify" db-relationship-path="downloadable_by"/>
+	<obj-relationship name="author" source="EditedContent" target="User" deleteRule="Nullify" db-relationship-path="author"/>
+	<obj-relationship name="contentPropertyValue" source="EditedContent" target="ContentPropertyValue" deleteRule="Nullify" db-relationship-path="content_property_value"/>
+	<obj-relationship name="user" source="Event" target="User" deleteRule="Nullify" db-relationship-path="user"/>
+	<obj-relationship name="user" source="FileUpload" target="User" deleteRule="Nullify" db-relationship-path="user"/>
+	<obj-relationship name="holdings" source="Licence" target="LicenceHolding" deleteRule="Deny" db-relationship-path="holdings"/>
+	<obj-relationship name="licence" source="LicenceHolding" target="Licence" deleteRule="Nullify" db-relationship-path="licence"/>
+	<obj-relationship name="user" source="LicenceHolding" target="User" deleteRule="Nullify" db-relationship-path="user"/>
+	<obj-relationship name="user" source="LmsAccess" target="User" deleteRule="Nullify" db-relationship-path="user"/>
+	<obj-relationship name="contentProperties" source="Locale" target="ContentPropertyValue" deleteRule="Deny" db-relationship-path="content_properties"/>
+	<obj-relationship name="contentPropertyNames" source="Locale" target="ContentPropertyName" deleteRule="Deny" db-relationship-path="content_property_names"/>
+	<obj-relationship name="publication" source="Locale" target="Publication" deleteRule="Deny" db-relationship-path="publication"/>
+	<obj-relationship name="activities" source="LrsEndpoint" target="LrsEndpointActivity" deleteRule="Deny" db-relationship-path="activities"/>
+	<obj-relationship name="owner" source="LrsEndpoint" target="User" deleteRule="Nullify" db-relationship-path="owner"/>
+	<obj-relationship name="personas" source="LrsEndpoint" target="LrsEndpointPersona" deleteRule="Deny" db-relationship-path="personas"/>
+	<obj-relationship name="statementProcessings" source="LrsEndpoint" target="StatementProcessing" deleteRule="Deny" db-relationship-path="statement_processings"/>
+	<obj-relationship name="statements" source="LrsEndpoint" target="LrsEndpointStatement" deleteRule="Deny" db-relationship-path="statements"/>
+	<obj-relationship name="lrsEndpoint" source="LrsEndpointActivity" target="LrsEndpoint" deleteRule="Nullify" db-relationship-path="lrs_endpoint"/>
+	<obj-relationship name="profiles" source="LrsEndpointActivity" target="LrsEndpointActivityProfile" deleteRule="Deny" db-relationship-path="profiles"/>
+	<obj-relationship name="activity" source="LrsEndpointActivityProfile" target="LrsEndpointActivity" deleteRule="Nullify" db-relationship-path="activity"/>
+	<obj-relationship name="lrsEndpoint" source="LrsEndpointPersona" target="LrsEndpoint" deleteRule="Nullify" db-relationship-path="lrs_endpoint"/>
+	<obj-relationship name="lrsEndpoint" source="LrsEndpointStatement" target="LrsEndpoint" deleteRule="Nullify" db-relationship-path="lrs_endpoint"/>
+	<obj-relationship name="customizationFiles" source="Plugin" target="CustomizationFile" deleteRule="Deny" db-relationship-path="customization_files"/>
+	<obj-relationship name="customizationProperties" source="Plugin" target="CustomizationProperty" deleteRule="Deny" db-relationship-path="customization_properties"/>
+	<obj-relationship name="domain" source="Plugin" target="Domain" deleteRule="Nullify" db-relationship-path="domain"/>
+	<obj-relationship name="cmiDatas" source="Publication" target="CmiData" deleteRule="Deny" db-relationship-path="suspend_datas"/>
+	<obj-relationship name="publicationSessions" source="Publication" target="PublicationSession" deleteRule="Deny" db-relationship-path="publicationSessions"/>
+	<obj-relationship name="recipients" source="Publication" target="PublicationRecipient" deleteRule="Deny" db-relationship-path="recipients"/>
+	<obj-relationship name="sourceLocale" source="Publication" target="Locale" deleteRule="Nullify" db-relationship-path="source_locale"/>
+	<obj-relationship name="sourceVersion" source="Publication" target="ContentVersion" deleteRule="Nullify" db-relationship-path="source_version"/>
+	<obj-relationship name="user" source="Publication" target="User" deleteRule="Nullify" db-relationship-path="user"/>
+	<obj-relationship name="publication" source="PublicationRecipient" target="Publication" deleteRule="Nullify" db-relationship-path="publication"/>
+	<obj-relationship name="publication" source="PublicationSession" target="Publication" deleteRule="Nullify" db-relationship-path="publication"/>
+	<obj-relationship name="owner" source="StatementProcessing" target="User" deleteRule="Nullify" db-relationship-path="owner"/>
+	<obj-relationship name="sourceLrs" source="StatementProcessing" target="LrsEndpoint" deleteRule="Nullify" db-relationship-path="source_lrs"/>
+	<obj-relationship name="contentVersions" source="Tag" target="ContentVersionTag" deleteRule="Deny" db-relationship-path="content_versions"/>
+	<obj-relationship name="files" source="TempDir" target="TempDirFile" deleteRule="Cascade" db-relationship-path="files"/>
+	<obj-relationship name="owner" source="TempDir" target="User" deleteRule="Nullify" db-relationship-path="owner"/>
+	<obj-relationship name="tempDir" source="TempDirFile" target="TempDir" deleteRule="Nullify" db-relationship-path="temp_dir"/>
+	<obj-relationship name="adhocReports" source="User" target="AdhocReport" deleteRule="Cascade" db-relationship-path="adhoc_reports"/>
+	<obj-relationship name="apiTokens" source="User" target="ApiToken" deleteRule="Cascade" db-relationship-path="apiTokens"/>
+	<obj-relationship name="buyProcesses" source="User" target="BuyProcess" deleteRule="Deny" db-relationship-path="buy_processes"/>
+	<obj-relationship name="contents" source="User" target="ContentVersion" deleteRule="Cascade" db-relationship-path="contents"/>
+	<obj-relationship name="contributeRoles" source="User" target="ContributeRole" db-relationship-path="contribute_roles"/>
+	<obj-relationship name="createdByRequest" source="User" target="AccountRequest" deleteRule="Nullify" db-relationship-path="created_by_request"/>
+	<obj-relationship name="domain" source="User" target="Domain" deleteRule="Nullify" db-relationship-path="domain"/>
+	<obj-relationship name="downloadableFiles" source="User" target="DownloadableFile" deleteRule="Deny" db-relationship-path="downloadable_files"/>
+	<obj-relationship name="downloadableFilesPublished" source="User" target="DownloadableFile" deleteRule="Deny" db-relationship-path="downloadable_files_published"/>
+	<obj-relationship name="editedContents" source="User" target="EditedContent" deleteRule="Cascade" db-relationship-path="edited_contents"/>
+	<obj-relationship name="fileUploads" source="User" target="FileUpload" deleteRule="Cascade" db-relationship-path="file_uploads"/>
+	<obj-relationship name="licences" source="User" target="LicenceHolding" deleteRule="Cascade" db-relationship-path="licences"/>
+	<obj-relationship name="lmsAccess" source="User" target="LmsAccess" deleteRule="Cascade" db-relationship-path="lms_access"/>
+	<obj-relationship name="lrsEndpoints" source="User" target="LrsEndpoint" deleteRule="Deny" db-relationship-path="lrs_endpoints"/>
+	<obj-relationship name="preferedLocale" source="User" target="Locale" deleteRule="Nullify" db-relationship-path="preferedLocale"/>
+	<obj-relationship name="publications" source="User" target="Publication" deleteRule="Deny" db-relationship-path="publications"/>
+	<obj-relationship name="statementProcessings" source="User" target="StatementProcessing" deleteRule="Deny" db-relationship-path="statement_processings"/>
+	<obj-relationship name="tempDirs" source="User" target="TempDir" deleteRule="Deny" db-relationship-path="temp_dirs"/>
+	<obj-relationship name="events" source="User" target="Event" deleteRule="Cascade" db-relationship-path="events"/>
+	<obj-relationship name="contentProperties" source="ValueType" target="ContentProperty" deleteRule="Deny" db-relationship-path="content_properties"/>
+	<dbImport xmlns="http://cayenne.apache.org/schema/10/dbimport">
+		<tableTypes>
+			<tableType>TABLE</tableType>
+			<tableType>VIEW</tableType>
+		</tableTypes>
+		<forceDataMapCatalog>false</forceDataMapCatalog>
+		<forceDataMapSchema>false</forceDataMapSchema>
+		<namingStrategy>org.apache.cayenne.dbsync.naming.DefaultObjectNameGenerator</namingStrategy>
+		<skipPrimaryKeyLoading>false</skipPrimaryKeyLoading>
+		<skipRelationshipsLoading>false</skipRelationshipsLoading>
+		<useJava7Types>false</useJava7Types>
+		<usePrimitives>true</usePrimitives>
+	</dbImport>
+	<cgen xmlns="http://cayenne.apache.org/schema/10/cgen">
+		<destDir>..\java</destDir>
+		<mode>entity</mode>
+		<template>templates/v4_1/subclass.vm</template>
+		<superTemplate>templates/v4_1/superclass.vm</superTemplate>
+		<outputPattern>*.java</outputPattern>
+		<makePairs>true</makePairs>
+		<usePkgPath>true</usePkgPath>
+		<overwrite>false</overwrite>
+		<createPropertyNames>false</createPropertyNames>
+		<createPKProperties>false</createPKProperties>
+		<client>false</client>
+	</cgen>
+</data-map>

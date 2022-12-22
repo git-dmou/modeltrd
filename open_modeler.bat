@@ -1,0 +1,1 @@
+mvn cayenne-modeler:run
